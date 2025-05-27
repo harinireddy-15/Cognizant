@@ -1,0 +1,277 @@
+// Exercise 1: Hello World Program
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+
+// Exercise 2: Simple Calculator
+import java.util.Scanner;
+class Calculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        double a = sc.nextDouble();
+        System.out.print("Enter second number: ");
+        double b = sc.nextDouble();
+        System.out.print("Choose operation (+, -, *, /): ");
+        char op = sc.next().charAt(0);
+        double result;
+        switch(op) {
+            case '+': result = a + b; break;
+            case '-': result = a - b; break;
+            case '*': result = a * b; break;
+            case '/': result = b != 0 ? a / b : Double.NaN; break;
+            default: result = Double.NaN;
+        }
+        System.out.println("Result: " + result);
+    }
+}
+
+// Exercise 3: Even or Odd Checker
+class EvenOddChecker {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int num = sc.nextInt();
+        System.out.println(num % 2 == 0 ? "Even" : "Odd");
+    }
+}
+
+// Exercise 4: Leap Year Checker
+class LeapYearChecker {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a year: ");
+        int year = sc.nextInt();
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+            System.out.println("Leap Year");
+        else
+            System.out.println("Not a Leap Year");
+    }
+}
+
+// Exercise 5: Multiplication Table
+class MultiplicationTable {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(n + " x " + i + " = " + (n * i));
+        }
+    }
+}
+
+// Exercise 6: Data Type Demonstration
+class DataTypes {
+    public static void main(String[] args) {
+        int i = 42;
+        float f = 3.14f;
+        double d = 2.718;
+        char c = 'A';
+        boolean b = true;
+        System.out.println(i + ", " + f + ", " + d + ", " + c + ", " + b);
+    }
+}
+
+// Exercise 7: Type Casting Example
+class TypeCasting {
+    public static void main(String[] args) {
+        double d = 9.78;
+        int i = (int) d;
+        int j = 10;
+        double jd = j;
+        System.out.println("Double to Int: " + i);
+        System.out.println("Int to Double: " + jd);
+    }
+}
+
+// Exercise 8: Operator Precedence
+class OperatorPrecedence {
+    public static void main(String[] args) {
+        int result = 10 + 5 * 2;
+        System.out.println("Result: " + result); // 20, because * has higher precedence than +
+    }
+}
+
+// Exercise 9: Grade Calculator
+class GradeCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter marks out of 100: ");
+        int marks = sc.nextInt();
+        char grade;
+        if (marks >= 90) grade = 'A';
+        else if (marks >= 80) grade = 'B';
+        else if (marks >= 70) grade = 'C';
+        else if (marks >= 60) grade = 'D';
+        else grade = 'F';
+        System.out.println("Grade: " + grade);
+    }
+}
+
+// Exercise 10: Number Guessing Game
+class GuessingGame {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number = (int)(Math.random() * 100) + 1;
+        int guess;
+        do {
+            System.out.print("Guess the number (1-100): ");
+            guess = sc.nextInt();
+            if (guess < number) System.out.println("Too low");
+            else if (guess > number) System.out.println("Too high");
+        } while (guess != number);
+        System.out.println("Correct!");
+    }
+}
+
+// Exercise 11: Factorial Calculator
+class Factorial {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+        long fact = 1;
+        for (int i = 2; i <= n; i++) fact *= i;
+        System.out.println("Factorial: " + fact);
+    }
+}
+
+// Exercise 12: Method Overloading
+class OverloadDemo {
+    int add(int a, int b) { return a + b; }
+    double add(double a, double b) { return a + b; }
+    int add(int a, int b, int c) { return a + b + c; }
+    public static void main(String[] args) {
+        OverloadDemo obj = new OverloadDemo();
+        System.out.println(obj.add(5, 10));
+        System.out.println(obj.add(3.5, 2.1));
+        System.out.println(obj.add(1, 2, 3));
+    }
+}
+
+// Exercise 13: Recursive Fibonacci
+class FibonacciRec {
+    static int fibonacci(int n) {
+        if (n <= 1) return n;
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter n: ");
+        int n = sc.nextInt();
+        System.out.println("Fibonacci: " + fibonacci(n));
+    }
+}
+
+// Exercise 14: Array Sum and Average
+class ArraySumAvg {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of elements: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+            sum += arr[i];
+        }
+        System.out.println("Sum: " + sum);
+        System.out.println("Average: " + (sum / (double)n));
+    }
+}
+
+// Exercise 15: String Reversal
+class StringReverse {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+        StringBuilder sb = new StringBuilder(str);
+        System.out.println("Reversed: " + sb.reverse());
+    }
+}
+
+// Exercise 16: Palindrome Checker
+class PalindromeChecker {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String s = sc.nextLine().replaceAll("[^A-Za-z0-9]", "").toLowerCase();
+        String rev = new StringBuilder(s).reverse().toString();
+        System.out.println(s.equals(rev) ? "Palindrome" : "Not a palindrome");
+    }
+}
+
+// Exercise 17: Class and Object Creation
+class Car {
+    String make, model;
+    int year;
+    void displayDetails() {
+        System.out.println(year + " " + make + " " + model);
+    }
+    public static void main(String[] args) {
+        Car c1 = new Car();
+        c1.make = "Toyota";
+        c1.model = "Corolla";
+        c1.year = 2020;
+        c1.displayDetails();
+    }
+}
+
+// Exercise 18: Inheritance Example
+class Animal {
+    void makeSound() {
+        System.out.println("Animal sound");
+    }
+}
+class Dog extends Animal {
+    void makeSound() {
+        System.out.println("Bark");
+    }
+    public static void main(String[] args) {
+        Animal a = new Animal();
+        a.makeSound();
+        Dog d = new Dog();
+        d.makeSound();
+    }
+}
+
+// Exercise 19: Interface Implementation
+interface Playable {
+    void play();
+}
+class Guitar implements Playable {
+    public void play() {
+        System.out.println("Strum the guitar");
+    }
+}
+class Piano implements Playable {
+    public void play() {
+        System.out.println("Play the piano");
+    }
+    public static void main(String[] args) {
+        Playable g = new Guitar();
+        Playable p = new Piano();
+        g.play();
+        p.play();
+    }
+}
+
+// Exercise 20: Try-Catch Example
+class TryCatchDemo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        try {
+            System.out.print("Enter numerator: ");
+            int a = sc.nextInt();
+            System.out.print("Enter denominator: ");
+            int b = sc.nextInt();
+            System.out.println("Result: " + (a / b));
+        } catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero!");
+        }
+    }
+}
